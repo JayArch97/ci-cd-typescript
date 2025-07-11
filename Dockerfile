@@ -1,6 +1,6 @@
 FROM node:18-alpine As development
 
-# Create app directory
+# Create app directory 
 WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
