@@ -1,5 +1,8 @@
 # compiled output
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11bb491 (remove dist from the .gitignore file)
 /node_modules
 /build
 
