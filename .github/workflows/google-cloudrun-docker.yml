@@ -74,7 +74,7 @@ jobs:
       - name: Push Docker Image to Artifact Registry 
         env:
           GIT_TAG: v0.1.0
-          run:  |-
+        run:  |-
             docker tag case-management-backend:latest us-central1-docker.pkg.dev/acostajulio-dev/images/ase-management-backend:latest
             docker push us-central1-docker.pkg.dev/acostajulio-dev/images/ase-management-backend:latest
       # If required, use the Cloud Run URL output in later steps
