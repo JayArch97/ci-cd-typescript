@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-FROM node:18-alpine As development
-
-# Create app directory 
-=======
-###################
-# BUILD FOR LOCAL DEVELOPMENT
-###################
-
-=======
->>>>>>> 213bc15 (Adding Dockerfile)
 FROM node:18-alpine As development
 
 # Create app directory
