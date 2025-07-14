@@ -62,26 +62,19 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
 
-         # Update Prompt synchronized prompt files in GCS bucket.
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v3
+      # Update Prompt synchronized prompt files in GCS bucket.
+      - name: Set up node
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.11"
+          node-version: "latest"
           
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install poetry==1.7.1
-          poetry init
-          poetry add --group dev 'pytest'
-          poetry install --with dev
+          npm install google-auth-library
           
       - name: Run Calling Script
         run: |
-          poetry run python sync.py \
-          --audience ${{ env.FRONTEND_API_URI }} \
-          --target_principal ${{ env.SERVICE_ACCOUNT }} \
-          --environment ${{ github.head_ref || github.ref_name }}
+          node credentials.js 
 
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
