@@ -74,7 +74,7 @@ jobs:
 
       - name: Run gcloud command 
         run: |-
-          gcloud auth application-default login
+          gcloud auth application-default login --quiet 
           
       - name: Run Calling Script
         run: |
