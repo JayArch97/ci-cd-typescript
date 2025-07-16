@@ -1,19 +1,34 @@
-const {GoogleAuth} = require('google-auth-library');
+const { GoogleAuth, Impersonated, IdTokenClient } = require('google-auth-library');
 
 /**
-* Instead of specifying the type of client you'd like to use (JWT, OAuth2, etc)
-* this library will automatically choose the right client based on the environment.
+Instead of specifying the type of client you'd like to use (JWT, OAuth2, etc)
+this library will automatically choose the right client based on the environment.
 */
 async function main() {
+  const scopes = ['https://www.googleapis.com/auth/cloud-platform'];
+  const targetPrincipal= "test112024@manuelmata-dev.iam.gserviceaccount.com";
+  const audience ="test2";
   const auth = new GoogleAuth({
-    scopes: 'https://www.googleapis.com/auth/cloud-platform'
+    scopes: scopes
   });
-  const client = await auth.getClient();
-  console.log(client)
-  const projectId = await auth.getProjectId();
-  const url = `https://dns.googleapis.com/dns/v1/projects/${projectId}`;
-  const res = await client.request({ url });
-  console.log(res.data);
+  
+  const creds = await auth.getClient();
+  
+  // Create impersonated credentials
+  const impersonatedClient = new Impersonated({
+
+    sourceClient: creds,
+    targetPrincipal: targetPrincipal,
+    targetScopes: scopes,
+    lifetime: 3600 // Token lifetime in seconds
+  });
+
+ 
+  
+  // Get the ID token
+  const token  = await impersonatedClient.fetchIdToken(audience);
+  console.log(token)
+  return token;
 }
 
 main().catch(console.error);
