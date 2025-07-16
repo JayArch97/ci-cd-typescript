@@ -71,6 +71,10 @@ jobs:
       - name: Install dependencies
         run: |
           npm install google-auth-library
+
+      - name: Run gcloud command 
+        run: |-
+          gcloud auth application-default login
           
       - name: Run Calling Script
         run: |
