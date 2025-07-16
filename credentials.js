@@ -6,7 +6,7 @@ this library will automatically choose the right client based on the environment
 */
 async function main() {
   const scopes = ['https://www.googleapis.com/auth/cloud-platform'];
-  const targetPrincipal= "test112024@manuelmata-dev.iam.gserviceaccount.com";
+  const targetPrincipal= "githubactions@acostajulio-dev.iam.gserviceaccount.com";
   const audience ="test2";
   const auth = new GoogleAuth({
     scopes: scopes
