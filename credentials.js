@@ -13,6 +13,7 @@ async function main() {
   });
   
   const creds = await auth.getClient();
+  console.log(creds);
   
   // Create impersonated credentials
   const impersonatedClient = new Impersonated({
@@ -28,6 +29,7 @@ async function main() {
   // Get the ID token
   const token  = await impersonatedClient.fetchIdToken(audience);
   console.log(token)
+  console.log("Finished running the script");
   return token;
 }
 
