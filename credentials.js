@@ -31,4 +31,4 @@ async function main() {
   return token;
 }
 
-main().catch(console.error);
+main()
