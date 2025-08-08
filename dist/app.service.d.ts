@@ -1,3 +1,5 @@
+import { Sequelize } from 'sequelize-typescript';
 export declare class AppService {
-    getHello(): string;
+    private sequelize;
+    constructor(sequelize: Sequelize);
 }
