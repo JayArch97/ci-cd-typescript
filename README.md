@@ -1,5 +1,5 @@
 <p align="center">
-<p>This is the backend for the case management application</p>
+<p align="center">This is the backend for the case management application</p>
 <p>The tech stack is the following:</p>
 <p>Framework Nestjs:</p>
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
