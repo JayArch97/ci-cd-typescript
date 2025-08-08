@@ -1,17 +1,4 @@
-# compiled output
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 11bb491 (remove dist from the .gitignore file)
-=======
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 11bb491 (remove dist from the .gitignore file)
->>>>>>> e6c2790 (Adding dockerfile for backend)
->>>>>>> 3b41dd4 (Adding dockerfile for backend)
 /node_modules
 /build
 

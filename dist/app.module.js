@@ -22,11 +22,15 @@ exports.AppModule = AppModule = __decorate([
         imports: [config_1.ConfigModule.forRoot({ isGlobal: true }),
             sequelize_1.SequelizeModule.forRoot({
                 dialect: 'postgres',
-
+                host: process.env.HOST,
+                port: 5432,
+                username: process.env.DATABASE_USER,
+                password: process.env.DATABASE_PASSWORD,
+                database: 'case_management_db',
                 models: [user_model_1.User],
+                autoLoadModels: true,
                 synchronize: true,
-            }),
-            user_module_1.UserModule,
+            }), user_module_1.UserModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
