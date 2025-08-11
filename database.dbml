@@ -17,6 +17,7 @@ Table cases {
 Table tasks {
     id integer
     task varchar [ ref: > cases.case]
+    status varchar
     follow_up_time timestamp
     notes varchar
     attachment blob 
@@ -26,4 +27,5 @@ Table team {
     id integer
     team_name varchar [ref: < users.user_name]
 }
+
 
