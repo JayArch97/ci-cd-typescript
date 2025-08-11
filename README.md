@@ -17,6 +17,6 @@
     <img src="https://www.postgresql.org/media/img/about/press/elephant.png" width="120" alt="PostgreSQL Logo" />
   </a>
 </div>
-<div style="background-color: white;">
+
 ![architecture](https://github.com/user-attachments/assets/49143877-eaba-4ee0-89ad-ae219903d699) 
-</div>
+
