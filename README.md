@@ -1,6 +1,5 @@
-<div align="center">
 ![architecture](https://github.com/user-attachments/assets/59faa9f4-7da7-49ab-b939-7ce027133177)
-</div>
+
 <div align="center">
   <p>This is the backend for the case management application</p>
   <p>The tech stack is the following:</p>
