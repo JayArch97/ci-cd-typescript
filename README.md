@@ -1,5 +1,7 @@
 ![architecture](https://github.com/user-attachments/assets/59faa9f4-7da7-49ab-b939-7ce027133177)
-
+<div align="center">
+<img width="711" height="522" alt="Screenshot 2025-08-10 at 9 29 29 PM" src="https://github.com/user-attachments/assets/ba32d664-5b42-40f5-bead-64a16f67f06a" />
+</div>
 <div align="center">
   <p>This is the backend for the case management application</p>
   <p>The tech stack is the following:</p>
