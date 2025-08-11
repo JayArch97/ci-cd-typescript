@@ -24,11 +24,14 @@ let UserService = class UserService {
         this.userModel = userModel;
         this.sequelize = sequelize;
     }
-    async createEmployee(name, lastName, isActive) {
+    async createEmployee(first_name, email, last_name, user_name, password, is_active) {
         return this.userModel.create({
-            firstName: name,
-            lastName: lastName,
-            isActive: isActive,
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            user_name: user_name,
+            password: password,
+            is_active: is_active,
         });
     }
 };

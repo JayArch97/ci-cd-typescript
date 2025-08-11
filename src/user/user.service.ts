@@ -12,14 +12,20 @@ export class UserService {
   ) {}
 
   async createEmployee(
-    name: string,
-    lastName: string,
-    isActive: boolean
+    first_name: string,
+    email: string,
+    last_name: string,
+    user_name: string, 
+    password: string,
+    is_active: boolean
   ): Promise<User> {
     return this.userModel.create({
-      firstName: name,
-      lastName: lastName,
-      isActive: isActive,
-    } as CreationAttributes<User>);   // <-- use CreationAttributes<User>
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      user_name: user_name, 
+      password: password, 
+      is_active: is_active,
+    } as CreationAttributes<User>);  
   }
 }

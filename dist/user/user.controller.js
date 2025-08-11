@@ -20,18 +20,21 @@ let UserController = class UserController {
     constructor(userService) {
         this.userService = userService;
     }
-    async create(firstName, lastName, isActive) {
-        return this.userService.createEmployee(firstName, lastName, isActive);
+    async create(first_name, last_name, email, user_name, password, is_active) {
+        return this.userService.createEmployee(first_name, last_name, email, user_name, password, is_active);
     }
 };
 exports.UserController = UserController;
 __decorate([
     (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)('firstName')),
-    __param(1, (0, common_1.Body)('lastName')),
-    __param(2, (0, common_1.Body)('isActive')),
+    __param(0, (0, common_1.Body)('first_name')),
+    __param(1, (0, common_1.Body)('last_name')),
+    __param(2, (0, common_1.Body)('email')),
+    __param(3, (0, common_1.Body)('user_name')),
+    __param(4, (0, common_1.Body)('password')),
+    __param(5, (0, common_1.Body)('is_active')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, Boolean]),
+    __metadata("design:paramtypes", [String, String, String, String, String, Boolean]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "create", null);
 exports.UserController = UserController = __decorate([

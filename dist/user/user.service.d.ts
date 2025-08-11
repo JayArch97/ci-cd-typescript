@@ -4,5 +4,5 @@ export declare class UserService {
     private userModel;
     private sequelize;
     constructor(userModel: typeof User, sequelize: Sequelize);
-    createEmployee(name: string, lastName: string, isActive: boolean): Promise<User>;
+    createEmployee(first_name: string, email: string, last_name: string, user_name: string, password: string, is_active: boolean): Promise<User>;
 }

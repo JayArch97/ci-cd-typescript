@@ -12,9 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 let User = class User extends sequelize_typescript_1.Model {
-    firstName;
-    lastName;
-    isActive;
+    first_name;
+    last_name;
+    email;
+    user_name;
+    password;
+    is_active;
 };
 exports.User = User;
 __decorate([
@@ -23,21 +26,42 @@ __decorate([
         allowNull: false,
     }),
     __metadata("design:type", String)
-], User.prototype, "firstName", void 0);
+], User.prototype, "first_name", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,
         allowNull: false,
     }),
     __metadata("design:type", String)
-], User.prototype, "lastName", void 0);
+], User.prototype, "last_name", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+        allowNull: false,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "email", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+        allowNull: false,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "user_name", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
+        allowNull: false,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "password", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         defaultValue: true,
         allowNull: false,
     }),
     __metadata("design:type", Boolean)
-], User.prototype, "isActive", void 0);
+], User.prototype, "is_active", void 0);
 exports.User = User = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'users' })
 ], User);

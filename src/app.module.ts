@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from './user/user.model';
 import { UserModule } from './user/user.module';
+import { CasesModule } from './cases/cases.module';
+import { TasksModule } from './tasks/tasks.module';
 
 
 @Module({
@@ -19,7 +21,9 @@ import { UserModule } from './user/user.module';
       models: [User],
       autoLoadModels: true,
       synchronize: true, // disable in production
-    }),UserModule,
+      retryAttempts: 5, 
+      retryDelay: 2000
+    }),UserModule, CasesModule, TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
