@@ -1,7 +1,6 @@
 FROM node:18-alpine As development
 
 # Create app directory
->>>>>>> 3b41dd4 (Adding dockerfile for backend)
 WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
@@ -15,14 +14,13 @@ RUN npm ci
 # Bundle app source
 COPY --chown=node:node . .
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 RUN npm run build
 
 EXPOSE 8080
 
-CMD [ "node", "dist/main.js" ] or
-=======
+CMD [ "node", "dist/main.js" ] 
+
 # Use the node user from the image (instead of the root user)
 USER node
 
@@ -42,14 +40,9 @@ COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modul
 COPY --chown=node:node . .
 
 # Run the build command which creates the production bundle
-=======
->>>>>>> 213bc15 (Adding Dockerfile)
+
 RUN npm run build
 
 EXPOSE 8080
 
-<<<<<<< HEAD
->>>>>>> 3b41dd4 (Adding dockerfile for backend)
-=======
 CMD [ "node", "dist/main.js" ]
->>>>>>> 213bc15 (Adding Dockerfile)

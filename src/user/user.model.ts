@@ -7,18 +7,36 @@ export class User extends Model<User> {
     type: DataType.STRING,
     allowNull: false,
   })
-  firstName: string;
-
+  first_name: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  lastName: string;
+  last_name: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  email: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  user_name: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  password: string;
+
 
   @Column({ 
     defaultValue: true,     
      allowNull: false,
  })
-  isActive: boolean;
+  is_active: boolean;
 }

@@ -12,33 +12,32 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserService = void 0;
+exports.TasksService = void 0;
 const common_1 = require("@nestjs/common");
-const sequelize_1 = require("@nestjs/sequelize");
-const user_model_1 = require("./user.model");
+const tasks_model_1 = require("./tasks.model");
 const sequelize_typescript_1 = require("sequelize-typescript");
-let UserService = class UserService {
-    userModel;
+const sequelize_1 = require("@nestjs/sequelize");
+let TasksService = class TasksService {
+    tasksModel;
     sequelize;
-    constructor(userModel, sequelize) {
-        this.userModel = userModel;
+    constructor(tasksModel, sequelize) {
+        this.tasksModel = tasksModel;
         this.sequelize = sequelize;
     }
-    async createEmployee(first_name, email, last_name, user_name, password, is_active) {
-        return this.userModel.create({
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            user_name: user_name,
-            password: password,
-            is_active: is_active,
+    async createTasks(task, status, follow_up_time, notes, attachment) {
+        return this.tasksModel.create({
+            task: task,
+            status: status,
+            follow_up_time: follow_up_time,
+            notes: notes,
+            attachment: attachment
         });
     }
 };
-exports.UserService = UserService;
-exports.UserService = UserService = __decorate([
+exports.TasksService = TasksService;
+exports.TasksService = TasksService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, sequelize_1.InjectModel)(user_model_1.User)),
+    __param(0, (0, sequelize_1.InjectModel)(tasks_model_1.Tasks)),
     __metadata("design:paramtypes", [Object, sequelize_typescript_1.Sequelize])
-], UserService);
-//# sourceMappingURL=user.service.js.map
+], TasksService);
+//# sourceMappingURL=tasks.service.js.map

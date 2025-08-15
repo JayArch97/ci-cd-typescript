@@ -12,33 +12,32 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
+exports.TasksController = void 0;
 const common_1 = require("@nestjs/common");
-const user_service_1 = require("./user.service");
-let UserController = class UserController {
-    userService;
-    constructor(userService) {
-        this.userService = userService;
+const tasks_service_1 = require("./tasks.service");
+let TasksController = class TasksController {
+    tasksService;
+    constructor(tasksService) {
+        this.tasksService = tasksService;
     }
-    async create(first_name, last_name, email, user_name, password, is_active) {
-        return this.userService.createEmployee(first_name, last_name, email, user_name, password, is_active);
+    async create(task, status, follow_up_time, notes, attachment) {
+        return this.tasksService.createTasks(task, status, follow_up_time, notes, attachment);
     }
 };
-exports.UserController = UserController;
+exports.TasksController = TasksController;
 __decorate([
     (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)('first_name')),
-    __param(1, (0, common_1.Body)('last_name')),
-    __param(2, (0, common_1.Body)('email')),
-    __param(3, (0, common_1.Body)('user_name')),
-    __param(4, (0, common_1.Body)('password')),
-    __param(5, (0, common_1.Body)('is_active')),
+    __param(0, (0, common_1.Body)('task')),
+    __param(1, (0, common_1.Body)('status')),
+    __param(2, (0, common_1.Body)('follow_up_time')),
+    __param(3, (0, common_1.Body)('notes')),
+    __param(4, (0, common_1.Body)('attachment')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, String, String, String, Boolean]),
+    __metadata("design:paramtypes", [String, String, Date, String, Boolean]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "create", null);
-exports.UserController = UserController = __decorate([
-    (0, common_1.Controller)('user'),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], UserController);
-//# sourceMappingURL=user.controller.js.map
+], TasksController.prototype, "create", null);
+exports.TasksController = TasksController = __decorate([
+    (0, common_1.Controller)('tasks'),
+    __metadata("design:paramtypes", [tasks_service_1.TasksService])
+], TasksController);
+//# sourceMappingURL=tasks.controller.js.map

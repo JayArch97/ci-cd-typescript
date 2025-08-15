@@ -8,11 +8,14 @@ export class UserController {
 
   @Post()
   async create(
-    @Body('firstName') firstName: string,
-    @Body('lastName') lastName: string,
-    @Body('isActive') isActive: boolean,
+    @Body('first_name') first_name: string,
+    @Body('last_name') last_name: string,
+    @Body('email') email: string,
+    @Body('user_name') user_name: string, 
+    @Body('password') password: string, 
+    @Body('is_active') is_active: boolean,
   ): Promise<User> {
-    return this.userService.createEmployee(firstName, lastName, isActive);
+    return this.userService.createEmployee(first_name, last_name, email, user_name, password, is_active);
   }
 }
 

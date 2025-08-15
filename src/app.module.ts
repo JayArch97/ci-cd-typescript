@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from './user/user.model';
 import { UserModule } from './user/user.module';
+import { CasesModule } from './cases/cases.module';
+import { TasksModule } from './tasks/tasks.module';
 
 
 @Module({
@@ -15,11 +17,13 @@ import { UserModule } from './user/user.module';
       port: 5432,
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
-      database: 'case_management_db',
+      database: process.env.DATABASE_NAME,
       models: [User],
       autoLoadModels: true,
-      synchronize: true, // disable in production
-    }),UserModule,
+      synchronize: true, 
+      retryAttempts: 5, 
+      retryDelay: 2000
+    }),UserModule, CasesModule, TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
