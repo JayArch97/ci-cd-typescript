@@ -13,6 +13,7 @@ const app_service_1 = require("./app.service");
 const config_1 = require("@nestjs/config");
 const sequelize_1 = require("@nestjs/sequelize");
 const user_model_1 = require("./user/user.model");
+const tasks_model_1 = require("./tasks/tasks.model");
 const user_module_1 = require("./user/user.module");
 const cases_module_1 = require("./cases/cases.module");
 const tasks_module_1 = require("./tasks/tasks.module");
@@ -24,16 +25,16 @@ exports.AppModule = AppModule = __decorate([
         imports: [config_1.ConfigModule.forRoot({ isGlobal: true }),
             sequelize_1.SequelizeModule.forRoot({
                 dialect: 'postgres',
-                host: process.env.HOST,
+                host: '34.31.185.218',
                 port: 5432,
-                username: process.env.DATABASE_USER,
+                username: 'julio',
                 password: process.env.DATABASE_PASSWORD,
                 database: process.env.DATABASE_NAME,
-                models: [user_model_1.User],
+                models: [user_model_1.User, tasks_model_1.Tasks,],
                 autoLoadModels: true,
                 synchronize: true,
                 retryAttempts: 5,
-                retryDelay: 2000
+                retryDelay: 500
             }), user_module_1.UserModule, cases_module_1.CasesModule, tasks_module_1.TasksModule,
         ],
         controllers: [app_controller_1.AppController],

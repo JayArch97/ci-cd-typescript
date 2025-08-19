@@ -1,31 +1,31 @@
-Table users {
-  id integer [pk]
-  first_name varchar
-  last_name varchar
-  email varchar [unique, not null]
-  user_name varchar [unique, not null]
-  created_at timestamp 
-}
+    Table users {
+    id integer [pk]
+    first_name varchar
+    last_name varchar
+    email varchar [unique, not null]
+    user_name varchar [unique, not null]
+    created_at timestamp 
+    }
 
-Table cases {
-    id integer 
-    case integer [ref: > users.user_name] 
-    follow_up date
-    tags varchar
-}
+    Table cases {
+        id integer 
+        case integer [ref: > users.user_name] 
+        follow_up date
+        tags varchar
+    }
 
-Table tasks {
-    id integer
-    task varchar [ ref: > cases.case]
-    status varchar
-    follow_up_time timestamp
-    notes varchar
-    attachment blob 
-}
+    Table tasks {
+        id integer
+        task varchar [ ref: > cases.case]
+        status varchar
+        follow_up_time timestamp
+        notes varchar
+        attachment blob 
+    }
 
-Table team {
-    id integer
-    team_name varchar [ref: < users.user_name]
-}
+    Table team {
+        id integer
+        team_name varchar [ref: < users.user_name]
+    }
 
 
