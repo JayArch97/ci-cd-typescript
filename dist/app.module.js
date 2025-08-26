@@ -14,28 +14,44 @@ const config_1 = require("@nestjs/config");
 const sequelize_1 = require("@nestjs/sequelize");
 const user_model_1 = require("./user/user.model");
 const tasks_model_1 = require("./tasks/tasks.model");
+const cases_model_1 = require("./cases/cases.model");
 const user_module_1 = require("./user/user.module");
 const cases_module_1 = require("./cases/cases.module");
 const tasks_module_1 = require("./tasks/tasks.module");
+const cloud_sql_connector_1 = require("@google-cloud/cloud-sql-connector");
+const connector = new cloud_sql_connector_1.Connector();
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [config_1.ConfigModule.forRoot({ isGlobal: true }),
-            sequelize_1.SequelizeModule.forRoot({
-                dialect: 'postgres',
-                host: '34.31.185.218',
-                port: 5432,
-                username: 'julio',
-                password: process.env.DATABASE_PASSWORD,
-                database: process.env.DATABASE_NAME,
-                models: [user_model_1.User, tasks_model_1.Tasks,],
-                autoLoadModels: true,
-                synchronize: true,
-                retryAttempts: 5,
-                retryDelay: 500
-            }), user_module_1.UserModule, cases_module_1.CasesModule, tasks_module_1.TasksModule,
+        imports: [
+            config_1.ConfigModule.forRoot({ isGlobal: true }),
+            sequelize_1.SequelizeModule.forRootAsync({
+                useFactory: async () => {
+                    const clientOpts = await connector.getOptions({
+                        instanceConnectionName: 'acostajulio-dev:us-central1:case-management-db',
+                        ipType: cloud_sql_connector_1.IpAddressTypes.PUBLIC,
+                    });
+                    return {
+                        dialect: 'postgres',
+                        host: '34.31.185.218',
+                        port: 5432,
+                        username: 'julio',
+                        password: process.env.DATABASE_PASSWORD,
+                        database: process.env.DATABASE_NAME,
+                        models: [user_model_1.User, tasks_model_1.Tasks, cases_model_1.Case],
+                        autoLoadModels: true,
+                        synchronize: true,
+                        retryAttempts: 5,
+                        retryDelay: 500,
+                        dialectOptions: {
+                            ...clientOpts,
+                        },
+                    };
+                },
+            }),
+            user_module_1.UserModule, cases_module_1.CasesModule, tasks_module_1.TasksModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
